@@ -1,14 +1,18 @@
-
-
-const Card = ({cloudinaryImageId,avgRating,
-      costForTwo,cuisines,sla,
-      name
+const Card = ({
+  cloudinaryImageId,
+  avgRating,
+  costForTwo,
+  cuisines,
+  sla,
+  name,
 }) => {
-      // let a="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
   return (
-      <div className="max-w-xs bg-white shadow-lg rounded-md overflow-hidden w-72">
+    <div className="max-w-xs bg-white shadow-lg rounded-md overflow-hidden w-72">
       <img
-        src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId}
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          cloudinaryImageId
+        }
         alt={name}
         className="w-full h-32 object-cover"
       />
@@ -20,14 +24,13 @@ const Card = ({cloudinaryImageId,avgRating,
           <span className="text-yellow-500 mr-1">&#9733;</span>
           <span className="text-gray-700">{avgRating}</span>
         </div>
-
         Delivery Time and Cost
         <p className="text-sm text-gray-700">
           {sla.deliveryTime} min &bull; {costForTwo} delivery
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

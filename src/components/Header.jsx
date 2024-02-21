@@ -1,7 +1,9 @@
-
-const Header = () => {
+const Header = ({ searchData, setSearchData }) => {
   return (
-      <header style={{backgroundColor:"#FFFFFF"}} className=" p-2  sticky top-0 z-50 ">
+    <header
+      style={{ backgroundColor: "#FFFFFF" }}
+      className=" p-2  sticky top-0 z-50 "
+    >
       <div className="container mx-auto flex justify-around items-center shadow-xl">
         <img
           className="w-32 rounded-3xl h-20 object-cover"
@@ -9,20 +11,25 @@ const Header = () => {
           alt="Food"
         />
 
-        <nav >
-          <ul  className="space-x-8 flex w-1/2 justify-between items-center text-xs font-bold ">
-            <li className="hover:text-yellow-600  transition-all">Search</li>
+        <nav>
+          <ul className="space-x-8 flex w-1/2 justify-between items-center text-xs font-bold ">
+            <li className="hover:text-yellow-600  transition-all ">
+              <input
+                className="outline:none border-2 border-black rounded-md p-2"
+                type="text"
+                value={searchData}
+                onChange={(e) => setSearchData(e.target.value)}
+              />
+            </li>
             <li className="hover:text-yellow-600  transition-all">Offers</li>
             <li className="hover:text-yellow-600  transition-all">Help</li>
             <li className="hover:text-yellow-600  transition-all ">Signin</li>
             <li className="hover:text-yellow-600  transition-all">Cart</li>
           </ul>
         </nav>
-
-       
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

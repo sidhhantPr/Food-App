@@ -1,20 +1,15 @@
 import { useState, useEffect } from "react";
-import { RESTURANT_API_URL } from "../config";
-import axios from "axios";
+import { Restaurantinfo } from "../config/RestaruantApiData";
 import Card from "./Card";
 // import {RESTURANT_INFO} from "../config"
 const Body = () => {
   const [resData, setResData] = useState([]);
-  async function getData() {
-    try {
-      const res = await axios.get(RESTURANT_API_URL);
-      const restrurants =
-        res?.data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants;
-      setResData(restrurants || []);
-    } catch (error) {
-      console.log(error);
-    }
+  function getData() {
+    const { data } = Restaurantinfo;
+    const restrurants =
+      data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle
+        ?.restaurants;
+    setResData(restrurants || []);
   }
   useEffect(() => {
     getData();

@@ -1,4 +1,4 @@
-const Header = ({ searchData, setSearchData }) => {
+const Header = ({ searchData, setSearchData, setBtn }) => {
   return (
     <header
       style={{ backgroundColor: "#FFFFFF" }}
@@ -13,13 +13,20 @@ const Header = ({ searchData, setSearchData }) => {
 
         <nav>
           <ul className="space-x-8 flex w-1/2 justify-between items-center text-xs font-bold ">
-            <li className="hover:text-yellow-600  transition-all ">
+            <li className="hover:text-yellow-600  transition-all flex items-center gap-2">
               <input
-                className="outline:none border-2 border-black rounded-md p-2"
+                className="outline:none border-2 border-black rounded-md p-2 "
                 type="text"
                 value={searchData}
                 onChange={(e) => setSearchData(e.target.value)}
+                placeholder="search"
               />
+              <button
+                onClick={() => setBtn(true)}
+                className="bg-blue-500  hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+              >
+                Search
+              </button>
             </li>
             <li className="hover:text-yellow-600  transition-all">Offers</li>
             <li className="hover:text-yellow-600  transition-all">Help</li>

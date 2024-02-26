@@ -2,18 +2,26 @@ import { useState, useEffect } from "react";
 import { Restaurantinfo } from "../config/RestaruantApiData";
 import Card from "./Card";
 // import {RESTURANT_INFO} from "../config"
-const Body = () => {
-  const [resData, setResData] = useState([]);
+const Body = ({ searchData, setBtn, btn }) => {
+  let [resData, setResData] = useState([]);
   function getData() {
     const { data } = Restaurantinfo;
-    const restrurants =
+    let restrurants =
       data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle
         ?.restaurants;
-    setResData(restrurants || []);
+    let filterRes = restrurants;
+    if (btn) {
+      setBtn(false);
+    } else {
+      filterRes = filterRes.filter((rest) =>
+        rest.info.name.toLowerCase().includes(searchData.toLowerCase())
+      );
+      setResData(filterRes || []);
+    }
   }
   useEffect(() => {
     getData();
-  }, []);
+  }, [btn]);
   if (resData?.length === 0)
     return <h1 key={"fc"}>wait!!! or network Error!!</h1>;
   return (

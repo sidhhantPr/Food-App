@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = ({ searchData, setSearchData, setBtn }) => {
   return (
     <header
@@ -31,7 +33,9 @@ const Header = ({ searchData, setSearchData, setBtn }) => {
             <li className="hover:text-yellow-600  transition-all">Offers</li>
             <li className="hover:text-yellow-600  transition-all">Help</li>
             <li className="hover:text-yellow-600  transition-all ">Signin</li>
-            <li className="hover:text-yellow-600  transition-all">Cart</li>
+            <Link to="/cart">
+              <li className="hover:text-yellow-600  transition-all">Cart</li>
+            </Link>
           </ul>
         </nav>
       </div>

@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSelector, useDispatch } from "react-redux";
+// import { store } from "../store";
+import { addItem } from "../store/cart/cartSlice";
 const Menu = () => {
   const { cloudinaryImageId, avgRating, costForTwo, cuisines, name } =
     useParams();
@@ -12,6 +14,10 @@ const Menu = () => {
       { id: 2, name: "Chiken tikka", price: 90 },
     ],
   };
+
+  const cartMenu = useSelector((store) => store.cart.cartMenu);
+  console.log(cartMenu);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -50,9 +56,12 @@ const Menu = () => {
                   <div>
                     <button
                       className="bg-blue-500 text-white px-4 py-2 rounded-md mt-2 hover:bg-blue-600"
-                      onClick={() =>
-                        toast.success(`Successfully Order ${item.name} added!`)
-                      }
+                      onClick={() => {
+                        dispatch(addItem(item));
+                        return toast.success(
+                          `Successfully Order ${item.name} added!`
+                        );
+                      }}
                     >
                       Order
                     </button>

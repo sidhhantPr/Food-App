@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import { useState } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Menu from "./components/Menu";
+import Cart from "./components/Cart";
+
 const App = () => {
   const [searchData, setSearchData] = useState("");
   const [btn, setBtn] = useState(false);
@@ -26,6 +28,10 @@ const AppLayout = createBrowserRouter([
   {
     path: "/menu/:cloudinaryImageId/:avgRating/:costForTwo/:cuisines/:name",
     element: <Menu />,
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
   },
 ]);
 export default AppLayout;

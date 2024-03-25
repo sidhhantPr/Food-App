@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Restaurantinfo } from "../config/RestaruantApiData";
 import Card from "./Card";
-// import {RESTURANT_INFO} from "../config"
 const Body = ({ searchData, setBtn, btn }) => {
   let [resData, setResData] = useState([]);
   function getData() {

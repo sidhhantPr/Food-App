@@ -16,7 +16,6 @@ const Menu = () => {
   };
 
   const cartMenu = useSelector((store) => store.cart.cartMenu);
-  console.log(cartMenu);
   const dispatch = useDispatch();
 
   return (

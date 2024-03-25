@@ -5,6 +5,7 @@ import { useState } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
+import PaymentSuccessPage from "./components/PaymentSucces";
 
 const App = () => {
   const [searchData, setSearchData] = useState("");
@@ -33,5 +34,6 @@ const AppLayout = createBrowserRouter([
     path: "/cart",
     element: <Cart />,
   },
+  { path: "/success", element: <PaymentSuccessPage /> },
 ]);
 export default AppLayout;
